@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://u7lqnedf7atb"]
+
+[ext_resource type="Texture2D" uid="uid://cyuv40su1vsqx" path="res://icon.svg" id="1_vkbxp"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vkbxp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
