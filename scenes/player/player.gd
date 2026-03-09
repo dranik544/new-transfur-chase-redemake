@@ -1,17 +1,19 @@
 extends CharacterBody2D
 class_name Player
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+@export var walkSpeed: float = 350.0
+var curSpeed: float = 0.0
+@export var velocityChangeWeight: float = 8.0
 
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.y = direction.y * SPEED
+		curSpeed = walkSpeed
+		velocity = lerp(velocity, direction * curSpeed, velocityChangeWeight * delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+		curSpeed = 0.0
+		velocity = lerp(velocity, Vector2.ZERO, (velocityChangeWeight * 2.0) * delta)
 	
+	#velocity = direction * curSpeed
 	move_and_slide()

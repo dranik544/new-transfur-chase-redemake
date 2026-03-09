@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://wwn83ij5md05"]
+[gd_scene load_steps=4 format=3 uid="uid://wwn83ij5md05"]
 
 [ext_resource type="PackedScene" uid="uid://le8mm6rpafpx" path="res://scenes/player/player.tscn" id="1_mnksr"]
 [ext_resource type="Texture2D" uid="uid://cyuv40su1vsqx" path="res://icon.svg" id="2_sqeqr"]
+[ext_resource type="PackedScene" uid="uid://b4kbwpdarc80m" path="res://scenes/rooms/1 loc/room_1_loc_1.tscn" id="3_sqeqr"]
 
 [node name="world" type="Node2D"]
+
+[node name="room 1loc 1" parent="." instance=ExtResource("3_sqeqr")]
 
 [node name="player" parent="." instance=ExtResource("1_mnksr")]
 

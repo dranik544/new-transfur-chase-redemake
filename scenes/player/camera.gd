@@ -1,9 +1,10 @@
 extends Camera2D
 
 @export var player: Player
-@export var dragSensitivity: float = 0.1
-@export var dragPlus: Vector2 = Vector2(128.0, 96.0)
-@export var dragSpeed: float = 7.0
+@export var dragSensitivity: float = 40.0
+@export var dragPlus: Vector2 = Vector2(96.0 / 1.6, 78.0 / 1.6)
+@export var dragSpeed: float = 5.5
+@export var defZoom: Vector2 = Vector2(2.0, 2.0)
 
 
 func _ready() -> void:
@@ -13,6 +14,13 @@ func _process(delta: float) -> void:
 	if player == null: return
 	
 	var targetpos: Vector2 = Vector2.ZERO
-	if abs(player.velocity.x) > dragSensitivity: targetpos.x = sign(player.velocity.x) * dragPlus.x
-	if abs(player.velocity.y) > dragSensitivity: targetpos.y = sign(player.velocity.y) * dragPlus.y
+	if abs(player.velocity) > Vector2(dragSensitivity, dragSensitivity):
+		if abs(player.velocity.x) > dragSensitivity:
+			targetpos.x = sign(player.velocity.x) * dragPlus.x
+		if abs(player.velocity.y) > dragSensitivity:
+			targetpos.y = sign(player.velocity.y) * dragPlus.y
+		
+		zoom = lerp(zoom, defZoom / 1.18, dragSpeed * delta)
+	else: zoom = lerp(zoom, defZoom, dragSpeed * delta)
+	
 	position = position.lerp(targetpos, clamp(dragSpeed * delta, 0.0, 1.0))
