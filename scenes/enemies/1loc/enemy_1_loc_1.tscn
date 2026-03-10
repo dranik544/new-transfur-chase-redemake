@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://n4kydtyh5bh5"]
+
+[ext_resource type="SpriteFrames" uid="uid://cf25kb2cjkbrf" path="res://scenes/enemies/1loc/enemy1Loc1SpriteFrames.tres" id="1_5100n"]
+[ext_resource type="Script" uid="uid://c5dxni4r7yhug" path="res://scenes/enemies/enemy.gd" id="1_nhpcn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5100n"]
+radius = 9.5
+height = 36.0
+
+[node name="enemy 1loc 1" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_nhpcn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+sprite_frames = ExtResource("1_5100n")
+offset = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -18)
+shape = SubResource("CapsuleShape2D_5100n")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

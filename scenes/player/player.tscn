@@ -9,19 +9,21 @@ radius = 9.5
 height = 36.0
 
 [node name="player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_dovo2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_8afob")
 animation = &"idle"
-offset = Vector2(0, -64)
+offset = Vector2(0, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -51)
+position = Vector2(0.5, -18)
 shape = SubResource("CapsuleShape2D_8afob")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
-offset = Vector2(0, -64)
+offset = Vector2(0, -32)
 ignore_rotation = false
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true

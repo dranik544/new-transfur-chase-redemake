@@ -1,36 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://wwn83ij5md05"]
 
 [ext_resource type="PackedScene" uid="uid://le8mm6rpafpx" path="res://scenes/player/player.tscn" id="1_mnksr"]
-[ext_resource type="Texture2D" uid="uid://cyuv40su1vsqx" path="res://icon.svg" id="2_sqeqr"]
 [ext_resource type="PackedScene" uid="uid://b4kbwpdarc80m" path="res://scenes/rooms/1 loc/room_1_loc_1.tscn" id="3_sqeqr"]
+[ext_resource type="PackedScene" uid="uid://n4kydtyh5bh5" path="res://scenes/enemies/1loc/enemy_1_loc_1.tscn" id="4_jwygn"]
 
 [node name="world" type="Node2D"]
+z_as_relative = false
+y_sort_enabled = true
 
 [node name="room 1loc 1" parent="." instance=ExtResource("3_sqeqr")]
+
+[node name="room 1loc 2" parent="." instance=ExtResource("3_sqeqr")]
+position = Vector2(512, 0)
+
+[node name="room 1loc 3" parent="." instance=ExtResource("3_sqeqr")]
+position = Vector2(1024, 0)
 
 [node name="player" parent="." instance=ExtResource("1_mnksr")]
 position = Vector2(141, 156)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.478431, 1, 0.478431, 1)
-position = Vector2(-118, -135)
-scale = Vector2(0.609375, 0.476562)
-texture = ExtResource("2_sqeqr")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-modulate = Color(0.478431, 1, 0.478431, 1)
-position = Vector2(274, 77)
-scale = Vector2(0.609375, 0.476562)
-texture = ExtResource("2_sqeqr")
-
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-modulate = Color(0.478431, 1, 0.478431, 1)
-position = Vector2(-182, 206)
-scale = Vector2(0.609375, 0.476562)
-texture = ExtResource("2_sqeqr")
-
-[node name="Sprite2D4" type="Sprite2D" parent="."]
-modulate = Color(0.478431, 1, 0.478431, 1)
-position = Vector2(390, -163)
-scale = Vector2(0.609375, 0.476562)
-texture = ExtResource("2_sqeqr")
+[node name="enemy 1loc 1" parent="." instance=ExtResource("4_jwygn")]
+position = Vector2(25, 128)

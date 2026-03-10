@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://cf25kb2cjkbrf"]
+
+[ext_resource type="Texture2D" uid="uid://bwgs2yt2yuy7i" path="res://sprites/colin/colin.png" id="1_tcxxk"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tcxxk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
