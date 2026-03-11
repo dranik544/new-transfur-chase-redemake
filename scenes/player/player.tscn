@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://le8mm6rpafpx"]
+[gd_scene load_steps=6 format=3 uid="uid://le8mm6rpafpx"]
 
 [ext_resource type="SpriteFrames" uid="uid://u7lqnedf7atb" path="res://scenes/player/playerSpriteFrames.tres" id="1_8afob"]
 [ext_resource type="Script" uid="uid://b1if8ylmcf4ee" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Script" uid="uid://iqo6xmblaseo" path="res://scenes/player/camera.gd" id="3_gmlin"]
+[ext_resource type="Script" uid="uid://3vdw5vih5ogl" path="res://scenes/player/animationPlayer.gd" id="3_lvxji"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
 radius = 9.5
@@ -15,8 +16,9 @@ script = ExtResource("1_dovo2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_8afob")
-animation = &"idle"
+animation = &"idle down"
 offset = Vector2(0, -32)
+script = ExtResource("3_lvxji")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -18)

@@ -1,14 +1,35 @@
-[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://u7lqnedf7atb"]
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://u7lqnedf7atb"]
 
-[ext_resource type="Texture2D" uid="uid://bwgs2yt2yuy7i" path="res://sprites/colin/colin.png" id="1_vkbxp"]
+[ext_resource type="Texture2D" uid="uid://c64v47p1rr4nc" path="res://sprites/colin/colinwalk.png" id="1_vkbxp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfwgo"]
+atlas = ExtResource("1_vkbxp")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7lao"]
+atlas = ExtResource("1_vkbxp")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jth0l"]
+atlas = ExtResource("1_vkbxp")
+region = Rect2(64, 0, 32, 64)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_vkbxp")
+"texture": SubResource("AtlasTexture_xfwgo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7lao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jth0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7lao")
 }],
 "loop": true,
-"name": &"idle",
-"speed": 5.0
+"name": &"idle down",
+"speed": 4.0
 }]
