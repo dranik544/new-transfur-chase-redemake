@@ -15,5 +15,14 @@ func _process(delta: float) -> void:
 		return
 	
 	if abs(player.velocity.x) > dragSensitivity or abs(player.velocity.y) > dragSensitivity:
-		if !is_playing(): play()
-		speed_scale = (abs(player.velocity.x) + abs(player.velocity.y)) * 0.007
+		var animname: String
+		if abs(player.velocity.x) > abs(player.velocity.y):
+			if player.velocity.x > 0: animname = "right"
+			else: animname = "left"
+		else:
+			if player.velocity.y > 0: animname = "down"
+			else: animname = "up"
+		
+		play(animname)
+		speed_scale = (abs(player.velocity.x) + abs(player.velocity.y)) * 0.005
+		

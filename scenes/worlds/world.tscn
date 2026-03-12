@@ -1,8 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://wwn83ij5md05"]
+[gd_scene load_steps=5 format=3 uid="uid://wwn83ij5md05"]
 
 [ext_resource type="PackedScene" uid="uid://le8mm6rpafpx" path="res://scenes/player/player.tscn" id="1_mnksr"]
 [ext_resource type="PackedScene" uid="uid://b4kbwpdarc80m" path="res://scenes/rooms/1 loc/room_1_loc_1.tscn" id="3_sqeqr"]
 [ext_resource type="PackedScene" uid="uid://n4kydtyh5bh5" path="res://scenes/enemies/1loc/enemy_1_loc_1.tscn" id="4_jwygn"]
+
+[sub_resource type="GDScript" id="GDScript_sqeqr"]
+script/source = "extends Node2D
+
+@export var enemyScene: PackedScene = preload(\"res://scenes/enemies/1loc/enemy_1_loc_1.tscn\")
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEvent:
+		if event.is_action_released(\"V\"):
+			var enemy: Enemy = enemyScene.instantiate()
+			get_tree().current_scene.add_child(enemy)
+			enemy.global_position = global_position
+		if event.is_action_released(\"C\"):
+			if get_tree().get_nodes_in_group(\"enemy\").size() > 0:
+				get_tree().get_first_node_in_group(\"enemy\").queue_free()
+"
 
 [node name="world" type="Node2D"]
 z_as_relative = false
@@ -16,8 +33,21 @@ position = Vector2(512, 0)
 [node name="room 1loc 3" parent="." instance=ExtResource("3_sqeqr")]
 position = Vector2(1024, 0)
 
+[node name="room 1loc 4" parent="." instance=ExtResource("3_sqeqr")]
+position = Vector2(0, -353)
+
+[node name="room 1loc 5" parent="." instance=ExtResource("3_sqeqr")]
+position = Vector2(512, -353)
+
+[node name="room 1loc 6" parent="." instance=ExtResource("3_sqeqr")]
+position = Vector2(1024, -353)
+
 [node name="player" parent="." instance=ExtResource("1_mnksr")]
 position = Vector2(141, 156)
 
 [node name="enemy 1loc 1" parent="." instance=ExtResource("4_jwygn")]
 position = Vector2(25, 128)
+
+[node name="TEST enemyspawner" type="Node2D" parent="."]
+position = Vector2(64, 128)
+script = SubResource("GDScript_sqeqr")

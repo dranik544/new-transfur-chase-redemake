@@ -1,11 +1,13 @@
 extends CharacterBody2D
+class_name Enemy
 
 @export var player: Player
-@export var speed: float = 200.0
+@export var speed: float = 120.0
 @onready var navagent: NavigationAgent2D = $NavigationAgent2D
 
 
 func _ready() -> void:
+	add_to_group("enemy")
 	await get_tree().process_frame
 	if player == null and get_tree(): player = get_tree().get_first_node_in_group("player")
 
