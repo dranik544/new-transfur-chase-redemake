@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://wwn83ij5md05"]
+[gd_scene load_steps=8 format=3 uid="uid://wwn83ij5md05"]
 
 [ext_resource type="PackedScene" uid="uid://le8mm6rpafpx" path="res://scenes/player/player.tscn" id="2_vpaal"]
 [ext_resource type="Script" uid="uid://t1sgutkv5t0r" path="res://scenes/worlds/generate_rooms.gd" id="3_sqeqr"]
 [ext_resource type="PackedScene" uid="uid://n4kydtyh5bh5" path="res://scenes/enemies/1loc/enemy_1_loc_1.tscn" id="4_jwygn"]
 [ext_resource type="PackedScene" uid="uid://b4kbwpdarc80m" path="res://scenes/rooms/1 loc/room_1_loc_1.tscn" id="4_vpaal"]
 [ext_resource type="PackedScene" uid="uid://ln6tpg5m688f" path="res://scenes/rooms/1 loc/room_1_loc_2.tscn" id="5_vpaal"]
+[ext_resource type="PackedScene" uid="uid://bmylj7qiwb83j" path="res://scenes/rooms/1 loc/room_1_loc_3.tscn" id="6_0qnlt"]
 
 [sub_resource type="GDScript" id="GDScript_sqeqr"]
 script/source = "extends Node2D
@@ -38,4 +39,4 @@ script = SubResource("GDScript_sqeqr")
 
 [node name="generate rooms" type="Node" parent="."]
 script = ExtResource("3_sqeqr")
-genRooms = [[ExtResource("4_vpaal"), "default"], [ExtResource("5_vpaal"), "default"]]
+genRooms = [[ExtResource("4_vpaal"), "default"], [ExtResource("5_vpaal"), "default"], [ExtResource("6_0qnlt"), "default"]]

@@ -11,20 +11,16 @@ var curPosRooms: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	if autoDetectWorld and world == null: world = get_tree().current_scene
-	if alreadyGenerateRooms: pass
-	
-	print(world)
-	
-	for i in 50:
-		var r = randi_range(1, 2)
-		match r:
-			1: genRoom(genRooms[0][0], genRooms[0][1])
-			2: genRoom(genRooms[1][0], genRooms[1][1])
+	if alreadyGenerateRooms:
+		for i in 40:
+			var r = randi_range(0, 2)
+			genRoom(genRooms[r][0], genRooms[r][1])
+			print("spawned room num: " + str(i))
+		print("completed!")
 
 func genRoom(roomScene: PackedScene, roomType: String):
 	if roomScene == null or world == null: return
 	await get_tree().process_frame
-	print("spawn")
 	
 	var room: Room = roomScene.instantiate()
 	match roomType:

@@ -15,10 +15,10 @@ func _ready() -> void:
 		if exitnode == null and get_node("exitnode") != null: exitnode = get_node("exitnode")
 	
 	if autoDetectEnterAndExit:
-		if enternode != null: enterpos = enternode.position - Vector2(0, 224)
-		if exitnode != null: exitpos = exitnode.position - Vector2(0, 224)
+		if enternode != null: enterpos = enternode.position
+		if exitnode != null: exitpos = exitnode.position
 	
-	print(enternode)
-	print(exitnode)
-	print(enterpos)
-	print(exitpos)
+	#print(enternode)
+	#print(exitnode)
+	#print(enterpos)
+	#print(exitpos)

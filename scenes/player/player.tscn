@@ -5,9 +5,7 @@
 [ext_resource type="Script" uid="uid://iqo6xmblaseo" path="res://scenes/player/camera.gd" id="3_gmlin"]
 [ext_resource type="Script" uid="uid://3vdw5vih5ogl" path="res://scenes/player/animationPlayer.gd" id="3_lvxji"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
-radius = 9.5
-height = 36.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
 
 [node name="player" type="CharacterBody2D"]
 collision_layer = 2
@@ -21,8 +19,8 @@ offset = Vector2(0, -32)
 script = ExtResource("3_lvxji")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -18)
-shape = SubResource("CapsuleShape2D_8afob")
+position = Vector2(0.5, -10)
+shape = SubResource("CircleShape2D_lvxji")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 offset = Vector2(0, -32)
@@ -38,3 +36,4 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("3_gmlin")
 player = NodePath("..")
+defZoom = Vector2(1, 1)
