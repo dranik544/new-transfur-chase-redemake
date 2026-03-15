@@ -1,4 +1,5 @@
 extends Node2D
+class_name Room
 
 @export var autoDetectEnterAndExit: bool = true
 @export var enterpos: Vector2
@@ -14,10 +15,10 @@ func _ready() -> void:
 		if exitnode == null and get_node("exitnode") != null: exitnode = get_node("exitnode")
 	
 	if autoDetectEnterAndExit:
-		if enternode != null: enterpos = enternode.position
-		if exitnode != null: exitpos = exitnode.position
+		if enternode != null: enterpos = enternode.position - Vector2(0, 224)
+		if exitnode != null: exitpos = exitnode.position - Vector2(0, 224)
 	
-	#print(enternode)
-	#print(exitnode)
-	#print(enterpos)
-	#print(exitpos)
+	print(enternode)
+	print(exitnode)
+	print(enterpos)
+	print(exitpos)
