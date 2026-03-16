@@ -29,7 +29,7 @@ z_as_relative = false
 y_sort_enabled = true
 
 [node name="enemy 1loc 1" parent="." instance=ExtResource("4_jwygn")]
-position = Vector2(25, 128)
+position = Vector2(84, 87)
 
 [node name="player" parent="." instance=ExtResource("2_vpaal")]
 
@@ -40,3 +40,4 @@ script = SubResource("GDScript_sqeqr")
 [node name="generate rooms" type="Node" parent="."]
 script = ExtResource("3_sqeqr")
 genRooms = [[ExtResource("4_vpaal"), "default"], [ExtResource("5_vpaal"), "default"], [ExtResource("6_0qnlt"), "default"]]
+alreadyGenerateRooms = true

@@ -36,4 +36,3 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("3_gmlin")
 player = NodePath("..")
-defZoom = Vector2(1, 1)

@@ -4,17 +4,25 @@ class_name Enemy
 @export var player: Player
 @export var speed: float = 120.0
 @onready var navagent: NavigationAgent2D = $NavigationAgent2D
+@export var pathIntervalUpdate: float = 0.2
+@export var pathTimerUpdate: float = 0.0
 
 
 func _ready() -> void:
 	add_to_group("enemy")
+	pathIntervalUpdate += randf_range(-0.1, 0.1)
 	await get_tree().process_frame
 	if player == null and get_tree(): player = get_tree().get_first_node_in_group("player")
 
 func _physics_process(delta: float) -> void:
 	if player == null: return
 	
-	navagent.target_position = player.global_position
+	pathTimerUpdate += delta
+	if pathTimerUpdate >= pathIntervalUpdate:
+		pathTimerUpdate = 0.0
+		navagent.target_position = player.global_position
+		
+	
 	if navagent.is_navigation_finished(): return
 	
 	var nextpos = navagent.get_next_path_position()
