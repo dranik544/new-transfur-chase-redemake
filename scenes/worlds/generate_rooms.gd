@@ -1,6 +1,6 @@
 extends Node
 
-# [roomScene: PackedScene, roomType: String]
+# roomScene: PackedScene
 @export var genRooms: Array = []
 @export var autoDetectWorld: bool = true
 @export var world: Node2D
@@ -12,20 +12,18 @@ var curPosRooms: Vector2 = Vector2.ZERO
 func _ready() -> void:
 	if autoDetectWorld and world == null: world = get_tree().current_scene
 	if alreadyGenerateRooms:
-		for i in 40:
-			var r = randi_range(0, 0)
-			genRoom(genRooms[r][0], genRooms[r][1])
+		for i in 35:
+			var r = randi_range(0, genRooms.size() - 1)
+			genRoom(genRooms[r])
 			print("spawned room num: " + str(i))
 		print("completed!")
 
-func genRoom(roomScene: PackedScene, roomType: String):
+func genRoom(roomScene: PackedScene):
 	if roomScene == null or world == null: return
 	await get_tree().process_frame
 	
 	var room: Room = roomScene.instantiate()
-	match roomType:
-		"default":
-			room.global_position = curPosRooms - room.enterpos
-			world.add_child(room)
-			generatedRooms.append(room)
-			curPosRooms = room.position + room.exitpos
+	room.global_position = curPosRooms - room.enterpos
+	world.add_child(room)
+	generatedRooms.append(room)
+	curPosRooms = room.position + room.exitpos

@@ -7,7 +7,7 @@
 
 [node name="enemy 1loc 1" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 4
 script = ExtResource("1_nhpcn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
