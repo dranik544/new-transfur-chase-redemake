@@ -13,7 +13,7 @@ func _ready() -> void:
 	if autoDetectWorld and world == null: world = get_tree().current_scene
 	if alreadyGenerateRooms:
 		for i in 40:
-			var r = randi_range(0, 2)
+			var r = randi_range(0, 0)
 			genRoom(genRooms[r][0], genRooms[r][1])
 			print("spawned room num: " + str(i))
 		print("completed!")
