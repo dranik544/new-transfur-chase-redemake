@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	
 	var targetpos: Vector2 = Vector2.ZERO
 	if abs(player.velocity.x) > dragSensitivity or abs(player.velocity.y) > dragSensitivity:
-		zoom = lerp(zoom, defZoom / 1.15, dragSpeed * delta)
+		zoom = lerp(zoom, defZoom / 1.25, dragSpeed * delta)
 		if abs(player.velocity.x) > dragSensitivity: targetpos.x = sign(player.velocity.x) * dragPlus.x
 		if abs(player.velocity.y) > dragSensitivity: targetpos.y = sign(player.velocity.y) * dragPlus.y
 	else: zoom = lerp(zoom, defZoom, dragSpeed * delta)
