@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Enemy
 
 @export var player: Player
-@export var speed: float = 120.0
+@export var speed: float = 180.0
 @onready var navagent: NavigationAgent2D = $NavigationAgent2D
 @export var pathIntervalUpdate: float = 0.2
 @export var pathTimerUpdate: float = 0.0

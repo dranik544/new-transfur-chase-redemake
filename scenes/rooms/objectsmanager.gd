@@ -20,4 +20,4 @@ func _ready() -> void:
 				objects[i][1].queue_free()
 				objects.remove_at(i)
 		objects[0][0].visible = true
-		objects[0][1].visible = true
+		objects[0][1].visible = false
