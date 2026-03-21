@@ -1,23 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://n4kydtyh5bh5"]
+[gd_scene load_steps=5 format=3 uid="uid://n4kydtyh5bh5"]
 
-[ext_resource type="SpriteFrames" uid="uid://cf25kb2cjkbrf" path="res://scenes/enemies/1loc/enemy1Loc1SpriteFrames.tres" id="1_5100n"]
 [ext_resource type="Script" uid="uid://c5dxni4r7yhug" path="res://scenes/enemies/enemy.gd" id="1_nhpcn"]
+[ext_resource type="SpriteFrames" uid="uid://u7lqnedf7atb" path="res://scenes/player/playerSpriteFrames.tres" id="2_8hwgb"]
+[ext_resource type="Script" uid="uid://3vdw5vih5ogl" path="res://scenes/player/animationPlayer.gd" id="3_5rofm"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nhpcn"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8lm7f"]
+radius = 5.0
 
 [node name="enemy 1loc 1" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_nhpcn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("player")]
 modulate = Color(1, 0, 0, 1)
-sprite_frames = ExtResource("1_5100n")
-offset = Vector2(0, -32)
+sprite_frames = ExtResource("2_8hwgb")
+animation = &"up"
+offset = Vector2(0, -16)
+script = ExtResource("3_5rofm")
+player = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -10)
-shape = SubResource("CircleShape2D_nhpcn")
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_8lm7f")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true

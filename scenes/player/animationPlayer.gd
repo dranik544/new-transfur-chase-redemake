@@ -1,6 +1,6 @@
 extends AnimatedSprite2D
 
-@export var player: Player
+@export var player: CharacterBody2D
 @export var dragSensitivity: float = 5.0
 
 

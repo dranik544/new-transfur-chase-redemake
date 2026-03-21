@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdxxopwkhitmd"
-path="res://.godot/imported/door1.png-5221a5603b90f5c2bae8146710c79408.ctex"
+uid="uid://cej5i7ibs51i3"
+path="res://.godot/imported/colinwalk4.png-d9ce137f9add33a39549a93b95080faa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tiles/door1.png"
-dest_files=["res://.godot/imported/door1.png-5221a5603b90f5c2bae8146710c79408.ctex"]
+source_file="res://OLDsprites/colin/colinwalk4.png"
+dest_files=["res://.godot/imported/colinwalk4.png-d9ce137f9add33a39549a93b95080faa.ctex"]
 
 [params]
 

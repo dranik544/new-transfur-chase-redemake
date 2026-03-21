@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cej5i7ibs51i3"
-path="res://.godot/imported/colinwalk4.png-af4cc7ac97072db51b520b3b1a4d2515.ctex"
+uid="uid://78rdr2r32iw8"
+path="res://.godot/imported/box1.png-e36980f91fe4cf38837cd449d5b07bd7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/colin/colinwalk4.png"
-dest_files=["res://.godot/imported/colinwalk4.png-af4cc7ac97072db51b520b3b1a4d2515.ctex"]
+source_file="res://OLDsprites/tiles/box1.png"
+dest_files=["res://.godot/imported/box1.png-e36980f91fe4cf38837cd449d5b07bd7.ctex"]
 
 [params]
 

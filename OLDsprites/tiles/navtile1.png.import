@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0mtjqg56n0u"
-path="res://.godot/imported/colinwalk1.png-903e0af7d661c33dcc052e2e604ac937.ctex"
+uid="uid://du0bvyqruplel"
+path="res://.godot/imported/navtile1.png-a117d9f968bd82b2ebc4e0e23515fa8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/colin/colinwalk1.png"
-dest_files=["res://.godot/imported/colinwalk1.png-903e0af7d661c33dcc052e2e604ac937.ctex"]
+source_file="res://OLDsprites/tiles/navtile1.png"
+dest_files=["res://.godot/imported/navtile1.png-a117d9f968bd82b2ebc4e0e23515fa8d.ctex"]
 
 [params]
 

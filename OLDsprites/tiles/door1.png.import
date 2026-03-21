@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deq2cthmvlhu0"
-path="res://.godot/imported/nulltile1.png-5b2c6a0c74813c0dd2f20e0894e5a9cf.ctex"
+uid="uid://cdxxopwkhitmd"
+path="res://.godot/imported/door1.png-93a1b2b180f017cdcfea8c990e3f7ba7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tiles/nulltile1.png"
-dest_files=["res://.godot/imported/nulltile1.png-5b2c6a0c74813c0dd2f20e0894e5a9cf.ctex"]
+source_file="res://OLDsprites/tiles/door1.png"
+dest_files=["res://.godot/imported/door1.png-93a1b2b180f017cdcfea8c990e3f7ba7.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0ppyiopok2ku"
-path="res://.godot/imported/colinwalk3.png-fd9962d8b7d5979f84e7a43b8e44c4d0.ctex"
+uid="uid://dq6vjbtp1b0fx"
+path="res://.godot/imported/wallDecorates1.png-b46e32efbab5c171dad1615412ec585b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/colin/colinwalk3.png"
-dest_files=["res://.godot/imported/colinwalk3.png-fd9962d8b7d5979f84e7a43b8e44c4d0.ctex"]
+source_file="res://OLDsprites/tiles/wallDecorates1.png"
+dest_files=["res://.godot/imported/wallDecorates1.png-b46e32efbab5c171dad1615412ec585b.ctex"]
 
 [params]
 

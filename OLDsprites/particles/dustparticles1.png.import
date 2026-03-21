@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmcfjxgyt7330"
-path="res://.godot/imported/colin2.png-49e62c5685b00e29372de25f4ed6fb49.ctex"
+uid="uid://b0t70rw5a4fb5"
+path="res://.godot/imported/dustparticles1.png-79ead8da0afc2a636a09761b99f4c448.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/colin/colin2.png"
-dest_files=["res://.godot/imported/colin2.png-49e62c5685b00e29372de25f4ed6fb49.ctex"]
+source_file="res://OLDsprites/particles/dustparticles1.png"
+dest_files=["res://.godot/imported/dustparticles1.png-79ead8da0afc2a636a09761b99f4c448.ctex"]
 
 [params]
 

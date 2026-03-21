@@ -6,15 +6,16 @@
 [ext_resource type="Script" uid="uid://3vdw5vih5ogl" path="res://scenes/player/animationPlayer.gd" id="3_lvxji"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
+radius = 5.0
 
 [sub_resource type="Gradient" id="Gradient_lvxji"]
 interpolation_mode = 2
-colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.294118)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.686275)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_p47bc"]
 gradient = SubResource("Gradient_lvxji")
-width = 128
-height = 128
+width = 16
+height = 16
 fill = 2
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1.5, 0)
@@ -23,22 +24,23 @@ fill_to = Vector2(1.5, 0)
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_dovo2")
+walkSpeed = 110.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_8afob")
-animation = &"down"
-offset = Vector2(0, -32)
+animation = &"up"
+offset = Vector2(0, -16)
 script = ExtResource("3_lvxji")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -10)
+position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_lvxji")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 ignore_rotation = false
-zoom = Vector2(2, 2)
+zoom = Vector2(4, 4)
 position_smoothing_enabled = true
-position_smoothing_speed = 20.0
+position_smoothing_speed = 10.0
 drag_left_margin = 0.1
 drag_top_margin = 0.1
 drag_right_margin = 0.1

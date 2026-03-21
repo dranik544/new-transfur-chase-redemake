@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duu11xffeyud6"
-path="res://.godot/imported/hitboxtile1.png-5daa7dcd1d2ef8a87a68578bf3985d1b.ctex"
+uid="uid://caydd5aljo6p8"
+path="res://.godot/imported/hitboxtile1.png-3b76a71da04d740d9cd569fe42d6ca4e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tiles/hitboxtile1.png"
-dest_files=["res://.godot/imported/hitboxtile1.png-5daa7dcd1d2ef8a87a68578bf3985d1b.ctex"]
+source_file="res://OLDsprites/tiles/hitboxtile1.png"
+dest_files=["res://.godot/imported/hitboxtile1.png-3b76a71da04d740d9cd569fe42d6ca4e.ctex"]
 
 [params]
 
