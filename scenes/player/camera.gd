@@ -20,4 +20,4 @@ func _process(delta: float) -> void:
 		if abs(player.velocity.y) > dragSensitivity: targetpos.y = sign(player.velocity.y) * dragPlus.y
 	else: zoom = lerp(zoom, defZoom, dragSpeed * delta)
 	
-	position = position.lerp(targetpos, clamp(dragSpeed * delta, 0.0, 1.0))
+	position = position.lerp(targetpos + Vector2(-32, 0), clamp(dragSpeed * delta, 0.0, 1.0))

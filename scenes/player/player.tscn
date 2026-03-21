@@ -35,7 +35,6 @@ position = Vector2(0.5, -10)
 shape = SubResource("CircleShape2D_lvxji")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
-offset = Vector2(0, -32)
 ignore_rotation = false
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
