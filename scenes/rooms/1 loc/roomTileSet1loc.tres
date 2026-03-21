@@ -6,13 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cdxxopwkhitmd" path="res://sprites/tiles/door1.png" id="4_vnoyg"]
 [ext_resource type="Texture2D" uid="uid://78rdr2r32iw8" path="res://sprites/tiles/box1.png" id="6_6mtvp"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_msg83"]
-texture = ExtResource("1_0mjxa")
-texture_region_size = Vector2i(32, 96)
-0:0/0 = 0
-0:1/0 = 0
-0:2/0 = 0
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fly8"]
 texture = ExtResource("2_msg83")
 texture_region_size = Vector2i(32, 32)
@@ -22,6 +15,13 @@ texture_region_size = Vector2i(32, 32)
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vnoyg"]
+texture = ExtResource("1_0mjxa")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6mtvp"]
 texture = ExtResource("4_vnoyg")
@@ -79,5 +79,5 @@ navigation_layer_0/layers = 1
 sources/8 = SubResource("TileSetAtlasSource_0mjxa")
 sources/1 = SubResource("TileSetAtlasSource_2fly8")
 sources/3 = SubResource("TileSetAtlasSource_6mtvp")
-sources/0 = SubResource("TileSetAtlasSource_msg83")
 sources/9 = SubResource("TileSetAtlasSource_0v7ud")
+sources/2 = SubResource("TileSetAtlasSource_vnoyg")

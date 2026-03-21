@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://le8mm6rpafpx"]
+[gd_scene load_steps=8 format=3 uid="uid://le8mm6rpafpx"]
 
 [ext_resource type="SpriteFrames" uid="uid://u7lqnedf7atb" path="res://scenes/player/playerSpriteFrames.tres" id="1_8afob"]
 [ext_resource type="Script" uid="uid://b1if8ylmcf4ee" path="res://scenes/player/player.gd" id="1_dovo2"]
@@ -6,6 +6,18 @@
 [ext_resource type="Script" uid="uid://3vdw5vih5ogl" path="res://scenes/player/animationPlayer.gd" id="3_lvxji"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
+
+[sub_resource type="Gradient" id="Gradient_lvxji"]
+interpolation_mode = 2
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.294118)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p47bc"]
+gradient = SubResource("Gradient_lvxji")
+width = 128
+height = 128
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1.5, 0)
 
 [node name="player" type="CharacterBody2D"]
 collision_layer = 2
@@ -36,3 +48,13 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("3_gmlin")
 player = NodePath("..")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_p47bc")
