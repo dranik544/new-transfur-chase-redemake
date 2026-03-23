@@ -5,6 +5,8 @@ extends Camera2D
 @export var dragPlus: Vector2 = Vector2(48.0, 32.0)
 @export var dragSpeed: float = 5.0
 @export var defZoom: Vector2 = Vector2(4.0, 4.0)
+@export var enableSinAnimation: bool = true
+@export var sintime: float = 0.0
 
 
 func _ready() -> void:
@@ -21,3 +23,9 @@ func _process(delta: float) -> void:
 	else: zoom = lerp(zoom, defZoom, dragSpeed * delta)
 	
 	position = position.lerp(targetpos + Vector2(0, -16), clamp(dragSpeed * delta, 0.0, 1.0))
+	if enableSinAnimation:
+		sintime += delta
+		offset = Vector2.ZERO + Vector2(
+			sin(sintime) * 3,
+			sin(sintime / 2) * 3
+		)

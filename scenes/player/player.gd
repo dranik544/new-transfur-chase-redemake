@@ -4,6 +4,7 @@ class_name Player
 @export var walkSpeed: float = 220.0
 var curSpeed: float = 0.0
 @export var velocityChangeWeight: float = 8.0
+@export var health: int = 100
 
 
 func _ready() -> void:
@@ -20,3 +21,6 @@ func _physics_process(delta: float) -> void:
 	
 	#velocity = direction * curSpeed
 	move_and_slide()
+
+func damage(count: int):
+	health -= count

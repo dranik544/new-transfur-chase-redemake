@@ -6,6 +6,7 @@ class_name Enemy
 @onready var navagent: NavigationAgent2D = $NavigationAgent2D
 @export var pathIntervalUpdate: float = 0.1
 @export var pathTimerUpdate: float = 0.0
+@export var damage: int = 10
 
 
 func _ready() -> void:

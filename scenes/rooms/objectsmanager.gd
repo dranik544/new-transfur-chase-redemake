@@ -16,8 +16,9 @@ func _ready() -> void:
 		var randomind = randi() % objects.size()
 		for i in range(objects.size() - 1, -1, -1):
 			if i != randomind:
-				objects[i][0].queue_free()
-				objects[i][1].queue_free()
+				objects[i][0].get_parent().queue_free()
+				#objects[i][0].queue_free()
+				#objects[i][1].queue_free()
 				objects.remove_at(i)
 		objects[0][0].visible = true
 		objects[0][1].visible = true

@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://le8mm6rpafpx"]
+[gd_scene load_steps=15 format=3 uid="uid://le8mm6rpafpx"]
 
 [ext_resource type="SpriteFrames" uid="uid://u7lqnedf7atb" path="res://scenes/player/playerSpriteFrames.tres" id="1_8afob"]
 [ext_resource type="Script" uid="uid://b1if8ylmcf4ee" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Script" uid="uid://iqo6xmblaseo" path="res://scenes/player/camera.gd" id="3_gmlin"]
 [ext_resource type="Script" uid="uid://3vdw5vih5ogl" path="res://scenes/player/animationPlayer.gd" id="3_lvxji"]
+[ext_resource type="Shader" uid="uid://cu0t7bjsqs1ag" path="res://scenes/player/slimed.gdshader" id="5_75vfm"]
+[ext_resource type="Script" uid="uid://hyyn8rya5k2l" path="res://scenes/player/area.gd" id="5_p47bc"]
+[ext_resource type="Script" uid="uid://c88tq6c0j5vio" path="res://scenes/player/screenslime.gd" id="6_0owmy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
 radius = 5.0
@@ -14,11 +17,31 @@ colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.686275)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_p47bc"]
 gradient = SubResource("Gradient_lvxji")
-width = 16
-height = 16
+width = 32
+height = 32
 fill = 2
 fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1.5, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0owmy"]
+shader = ExtResource("5_75vfm")
+shader_parameter/progress = 1.0
+shader_parameter/meltness = 10.0
+shader_parameter/how_low = 2.0
+shader_parameter/wave_frequency = 15.0
+
+[sub_resource type="Gradient" id="Gradient_75vfm"]
+interpolation_mode = 2
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.686275)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0owmy"]
+gradient = SubResource("Gradient_75vfm")
+width = 32
+height = 32
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvxji"]
+size = Vector2(20, 35)
 
 [node name="player" type="CharacterBody2D"]
 collision_layer = 2
@@ -52,10 +75,29 @@ player = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="fade" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_p47bc")
+
+[node name="slime" type="TextureRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_0owmy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_0owmy")
+script = ExtResource("6_0owmy")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 12
+script = ExtResource("5_p47bc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_lvxji")

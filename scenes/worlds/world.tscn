@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b4kbwpdarc80m" path="res://scenes/rooms/1 loc/room_1_loc_1.tscn" id="4_vpaal"]
 
 [sub_resource type="Gradient" id="Gradient_lvxji"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+colors = PackedColorArray(1, 1, 1, 1, 0.686275, 0.686275, 0.686275, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vpaal"]
 gradient = SubResource("Gradient_lvxji")
@@ -44,7 +44,8 @@ position = Vector2(180, 0)
 
 [node name="PointLight2D" type="PointLight2D" parent="player"]
 position = Vector2(0, -16)
-energy = 0.1
+color = Color(0.851236, 0.768601, 0.751773, 1)
+energy = 0.2
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_vpaal")
 texture_scale = 50.0
@@ -57,3 +58,5 @@ script = SubResource("GDScript_sqeqr")
 script = ExtResource("3_sqeqr")
 genRooms = [ExtResource("4_vpaal")]
 alreadyGenerateRooms = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
