@@ -11,6 +11,13 @@ func _ready() -> void:
 	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
+	
+	
+	
+	if Input.is_action_pressed("C"): damage(5)
+	
+	
+	
 	var direction := Input.get_vector("LEFT", "RIGHT", "UP", "DOWN")
 	if direction:
 		curSpeed = walkSpeed
