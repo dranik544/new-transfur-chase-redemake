@@ -9,11 +9,16 @@ func _ready() -> void:
 	animprogress()
 
 func _process(delta: float) -> void:
-	if updateByHealth or player != null: texture.fill_from.y = lerp(texture.fill_from.y, abs(1.0 - float(player.health) / 100), 1 * delta)
+	if updateByHealth or player != null: texture.fill_from.y = lerp(texture.fill_from.y, abs(1.0 - float(player.health) / 100), 0.5 * delta)
 
 func animprogress():
 	if tween: tween.kill()
 	tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_method(progress, 0.0, 1.0, 6.5)
+	tween.tween_method(progress, 1.0, 0.0, 6.5)
 	tween.set_loops()
-	tween.tween_method(progress, 0.0, 1.0, 6.0)
-func progress(value: float): material.set_shader_parameter("progress", value)
+func progress(value: float):
+	material.set_shader_parameter("progress", value);
+	material.set_shader_parameter("how_low", 1.0 + value)

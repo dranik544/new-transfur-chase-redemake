@@ -50,6 +50,9 @@ alpha_curve = SubResource("CurveTexture_5gtgg")
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
 radius = 5.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvxji"]
+size = Vector2(20, 36)
+
 [sub_resource type="Gradient" id="Gradient_lvxji"]
 interpolation_mode = 2
 colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.294118)
@@ -70,23 +73,24 @@ shader_parameter/wave_frequency = 30.0
 
 [sub_resource type="Gradient" id="Gradient_75vfm"]
 interpolation_mode = 2
-colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.686275)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.882353)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0owmy"]
 gradient = SubResource("Gradient_75vfm")
 width = 32
 height = 32
-fill_from = Vector2(0.5, 0)
+fill_from = Vector2(0.5, 0.4)
 fill_to = Vector2(0.5, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvxji"]
-size = Vector2(20, 35)
-
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("latexTimer")]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_dovo2")
 walkSpeed = 110.0
+latexTimer = NodePath("latextimer")
+
+[node name="latextimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="particles" type="Node2D" parent="."]
 
@@ -108,6 +112,21 @@ script = ExtResource("3_lvxji")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_lvxji")
+
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("player", "attackTimer")]
+collision_layer = 0
+collision_mask = 12
+script = ExtResource("5_p47bc")
+player = NodePath("..")
+attackTimer = NodePath("Timer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_lvxji")
+
+[node name="Timer" type="Timer" parent="Area2D"]
+wait_time = 0.5
+one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 ignore_rotation = false
@@ -206,12 +225,3 @@ texture = SubResource("GradientTexture2D_0owmy")
 script = ExtResource("6_0owmy")
 player = NodePath("../../..")
 metadata/_edit_lock_ = true
-
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 12
-script = ExtResource("5_p47bc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -16)
-shape = SubResource("RectangleShape2D_lvxji")

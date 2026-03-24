@@ -5,19 +5,15 @@ class_name Player
 var curSpeed: float = 0.0
 @export var velocityChangeWeight: float = 8.0
 @export var health: int = 100
+@export var latexTimer: Timer
+@export var enableLatexInfection: bool = true
 
 
 func _ready() -> void:
+	latexTimer.timeout.connect(latextimertimeout)
 	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
-	
-	
-	
-	if Input.is_action_pressed("C"): damage(5)
-	
-	
-	
 	var direction := Input.get_vector("LEFT", "RIGHT", "UP", "DOWN")
 	if direction:
 		curSpeed = walkSpeed
@@ -31,3 +27,7 @@ func _physics_process(delta: float) -> void:
 
 func damage(count: int):
 	health -= count
+	if health <= 80 and enableLatexInfection: latexTimer.start()
+
+func latextimertimeout():
+	if enableLatexInfection: damage(1)
