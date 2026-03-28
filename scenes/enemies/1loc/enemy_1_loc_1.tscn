@@ -1,16 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://n4kydtyh5bh5"]
+[gd_scene load_steps=7 format=3 uid="uid://n4kydtyh5bh5"]
 
 [ext_resource type="Script" uid="uid://c5dxni4r7yhug" path="res://scenes/enemies/enemy.gd" id="1_nhpcn"]
 [ext_resource type="SpriteFrames" uid="uid://u7lqnedf7atb" path="res://scenes/player/playerSpriteFrames.tres" id="2_8hwgb"]
 [ext_resource type="Script" uid="uid://3vdw5vih5ogl" path="res://scenes/player/animationPlayer.gd" id="3_5rofm"]
+
+[sub_resource type="Gradient" id="Gradient_qek5x"]
+offsets = PackedFloat32Array(0.375527, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8hwgb"]
+gradient = SubResource("Gradient_qek5x")
+width = 16
+height = 8
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8hwgb"]
 radius = 4.0
 
 [node name="enemy 1loc 1" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 4
+collision_mask = 20
 script = ExtResource("1_nhpcn")
+
+[node name="shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+texture = SubResource("GradientTexture2D_8hwgb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("player")]
 modulate = Color(1, 0, 0, 1)

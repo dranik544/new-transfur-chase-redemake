@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://le8mm6rpafpx"]
+[gd_scene load_steps=25 format=3 uid="uid://le8mm6rpafpx"]
 
 [ext_resource type="SpriteFrames" uid="uid://u7lqnedf7atb" path="res://scenes/player/playerSpriteFrames.tres" id="1_8afob"]
 [ext_resource type="Script" uid="uid://b1if8ylmcf4ee" path="res://scenes/player/player.gd" id="1_dovo2"]
@@ -47,6 +47,18 @@ scale_max = 4.0
 scale_curve = SubResource("CurveTexture_qek5x")
 alpha_curve = SubResource("CurveTexture_5gtgg")
 
+[sub_resource type="Gradient" id="Gradient_qek5x"]
+offsets = PackedFloat32Array(0.375527, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5gtgg"]
+gradient = SubResource("Gradient_qek5x")
+width = 16
+height = 8
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
 radius = 5.0
 
@@ -79,18 +91,18 @@ colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.882353)
 gradient = SubResource("Gradient_75vfm")
 width = 32
 height = 32
-fill_from = Vector2(0.5, 0.4)
+fill_from = Vector2(0.5, 0)
 fill_to = Vector2(0.5, 0)
 
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("latexTimer")]
 collision_layer = 2
-collision_mask = 9
+collision_mask = 25
 script = ExtResource("1_dovo2")
 walkSpeed = 110.0
 latexTimer = NodePath("latextimer")
 
 [node name="latextimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 1.2
 
 [node name="particles" type="Node2D" parent="."]
 
@@ -102,6 +114,10 @@ lifetime = 6.0
 process_material = SubResource("ParticleProcessMaterial_5gtgg")
 script = ExtResource("2_qek5x")
 player = NodePath("../..")
+
+[node name="shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+texture = SubResource("GradientTexture2D_5gtgg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_8afob")

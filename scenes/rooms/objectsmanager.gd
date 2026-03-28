@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 @export var autoDetectObjects: bool = true
 @export var objects: Array[Array] = []
