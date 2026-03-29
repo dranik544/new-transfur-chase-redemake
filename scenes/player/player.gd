@@ -30,7 +30,6 @@ func _physics_process(delta: float) -> void:
 	if nowDash:
 		timerDash -= delta
 		if timerDash <= 0.0:
-			print("now dont dash")
 			nowDash = false
 			set_collision_mask_value(5, true)
 			var cooldowntimer: Timer = Timer.new()

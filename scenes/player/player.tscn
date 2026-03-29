@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://le8mm6rpafpx"]
+[gd_scene load_steps=27 format=3 uid="uid://le8mm6rpafpx"]
 
 [ext_resource type="SpriteFrames" uid="uid://u7lqnedf7atb" path="res://scenes/player/playerSpriteFrames.tres" id="1_8afob"]
 [ext_resource type="Script" uid="uid://b1if8ylmcf4ee" path="res://scenes/player/player.gd" id="1_dovo2"]
@@ -8,6 +8,8 @@
 [ext_resource type="Shader" uid="uid://cu0t7bjsqs1ag" path="res://scenes/player/slimed.gdshader" id="5_75vfm"]
 [ext_resource type="Script" uid="uid://hyyn8rya5k2l" path="res://scenes/player/area.gd" id="5_p47bc"]
 [ext_resource type="Script" uid="uid://c88tq6c0j5vio" path="res://scenes/player/screenslime.gd" id="6_0owmy"]
+[ext_resource type="Script" uid="uid://d300a8fveufy8" path="res://scenes/player/itemmanager.gd" id="9_5gtgg"]
+[ext_resource type="Texture2D" uid="uid://drm2i3ee0xqrj" path="res://muha.png" id="10_h17s1"]
 
 [sub_resource type="Gradient" id="Gradient_0owmy"]
 interpolation_mode = 2
@@ -121,7 +123,7 @@ texture = SubResource("GradientTexture2D_5gtgg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_8afob")
-animation = &"up"
+animation = &"left"
 offset = Vector2(0, -16)
 script = ExtResource("3_lvxji")
 
@@ -241,3 +243,17 @@ texture = SubResource("GradientTexture2D_0owmy")
 script = ExtResource("6_0owmy")
 player = NodePath("../../..")
 metadata/_edit_lock_ = true
+
+[node name="itemmanager" type="Node2D" parent="." node_paths=PackedStringArray("player", "areaPickItem", "spriteItem")]
+script = ExtResource("9_5gtgg")
+player = NodePath("..")
+areaPickItem = NodePath("../Area2D")
+spriteItem = NodePath("Sprite2D")
+itemPositionLeft = Vector2(3, -11)
+itemPositionRight = Vector2(-3, -11)
+itemPositionUp = Vector2(8, -13)
+itemPositionDown = Vector2(-8, -11)
+
+[node name="Sprite2D" type="Sprite2D" parent="itemmanager"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("10_h17s1")
