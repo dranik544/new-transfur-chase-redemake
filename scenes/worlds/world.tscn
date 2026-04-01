@@ -37,15 +37,15 @@ script/source = "extends Node2D
 @export var enemyScene: PackedScene = preload(\"res://scenes/enemies/1loc/enemy_1_loc_1.tscn\")
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEvent:
-		if event.is_action_released(\"V\"):
-			var enemy: Enemy = enemyScene.instantiate()
-			get_tree().current_scene.add_child(enemy)
-			enemy.global_position = global_position
-		if event.is_action_released(\"C\"):
-			if get_tree().get_nodes_in_group(\"enemy\").size() > 0:
-				get_tree().get_first_node_in_group(\"enemy\").queue_free()
+#func _unhandled_input(event: InputEvent) -> void:
+	#if event is InputEvent:
+		#if event.is_action_released(\"V\"):
+			#var enemy: Enemy = enemyScene.instantiate()
+			#get_tree().current_scene.add_child(enemy)
+			#enemy.global_position = global_position
+		#if event.is_action_released(\"C\"):
+			#if get_tree().get_nodes_in_group(\"enemy\").size() > 0:
+				#get_tree().get_first_node_in_group(\"enemy\").queue_free()
 "
 
 [node name="world" type="Node2D"]

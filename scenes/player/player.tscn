@@ -1,53 +1,13 @@
-[gd_scene load_steps=27 format=3 uid="uid://le8mm6rpafpx"]
+[gd_scene load_steps=18 format=3 uid="uid://le8mm6rpafpx"]
 
 [ext_resource type="SpriteFrames" uid="uid://u7lqnedf7atb" path="res://scenes/player/playerSpriteFrames.tres" id="1_8afob"]
 [ext_resource type="Script" uid="uid://b1if8ylmcf4ee" path="res://scenes/player/player.gd" id="1_dovo2"]
-[ext_resource type="Script" uid="uid://cqpmpo286wtva" path="res://scenes/player/latexsteps.gd" id="2_qek5x"]
 [ext_resource type="Script" uid="uid://iqo6xmblaseo" path="res://scenes/player/camera.gd" id="3_gmlin"]
 [ext_resource type="Script" uid="uid://3vdw5vih5ogl" path="res://scenes/player/animationPlayer.gd" id="3_lvxji"]
 [ext_resource type="Shader" uid="uid://cu0t7bjsqs1ag" path="res://scenes/player/slimed.gdshader" id="5_75vfm"]
 [ext_resource type="Script" uid="uid://hyyn8rya5k2l" path="res://scenes/player/area.gd" id="5_p47bc"]
 [ext_resource type="Script" uid="uid://c88tq6c0j5vio" path="res://scenes/player/screenslime.gd" id="6_0owmy"]
 [ext_resource type="Script" uid="uid://d300a8fveufy8" path="res://scenes/player/itemmanager.gd" id="9_5gtgg"]
-[ext_resource type="Texture2D" uid="uid://drm2i3ee0xqrj" path="res://muha.png" id="10_h17s1"]
-
-[sub_resource type="Gradient" id="Gradient_0owmy"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0.379747, 0.831224)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_qek5x"]
-gradient = SubResource("Gradient_0owmy")
-width = 6
-height = 5
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="Curve" id="Curve_qek5x"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.151584, 1), 0.0, 0.0, 0, 0, Vector2(0.246606, 0.750973), 0.0, 0.0, 0, 0, Vector2(0.332579, 1), 0.0, 0.0, 0, 0, Vector2(0.4819, 0.70428), 0.0, 0.0, 0, 0, Vector2(0.604072, 1), 0.0, 0.0, 0, 0, Vector2(0.757919, 0.750973), 0.0, 0.0, 0, 0, Vector2(0.875566, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 9
-
-[sub_resource type="CurveTexture" id="CurveTexture_5gtgg"]
-curve = SubResource("Curve_qek5x")
-
-[sub_resource type="Curve" id="Curve_0owmy"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.11086, 1), 0.0, 0.0, 0, 0, Vector2(0.228507, 0.750973), 0.0, 0.0, 0, 0, Vector2(0.328054, 0.642023), 0.0, 0.0, 0, 0, Vector2(0.414027, 0.766537), 0.0, 0.0, 0, 0, Vector2(0.50905, 0.564202), 0.0, 0.0, 0, 0, Vector2(0.581448, 0.439689), 0.0, 0.0, 0, 0, Vector2(0.658371, 0.486381), 0.0, 0.0, 0, 0, Vector2(0.780543, 0.284047), 0.0, 0.0, 0, 0, Vector2(0.834842, 0.22179), 0.0, 0.0, 0, 0, Vector2(0.893665, 0.268483), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 12
-
-[sub_resource type="CurveTexture" id="CurveTexture_qek5x"]
-curve = SubResource("Curve_0owmy")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5gtgg"]
-particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 8.0
-angle_min = -9.99999
-angle_max = 10.0
-gravity = Vector3(0, 0, 0)
-scale_min = 1.5
-scale_max = 4.0
-scale_curve = SubResource("CurveTexture_qek5x")
-alpha_curve = SubResource("CurveTexture_5gtgg")
 
 [sub_resource type="Gradient" id="Gradient_qek5x"]
 offsets = PackedFloat32Array(0.375527, 1)
@@ -105,17 +65,6 @@ latexTimer = NodePath("latextimer")
 
 [node name="latextimer" type="Timer" parent="."]
 wait_time = 1.2
-
-[node name="particles" type="Node2D" parent="."]
-
-[node name="latexsteps" type="GPUParticles2D" parent="particles" node_paths=PackedStringArray("player")]
-emitting = false
-amount = 1
-texture = SubResource("GradientTexture2D_qek5x")
-lifetime = 6.0
-process_material = SubResource("ParticleProcessMaterial_5gtgg")
-script = ExtResource("2_qek5x")
-player = NodePath("../..")
 
 [node name="shadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.588235)
@@ -244,16 +193,20 @@ script = ExtResource("6_0owmy")
 player = NodePath("../../..")
 metadata/_edit_lock_ = true
 
-[node name="itemmanager" type="Node2D" parent="." node_paths=PackedStringArray("player", "areaPickItem", "spriteItem")]
+[node name="itemmanager" type="Node2D" parent="." node_paths=PackedStringArray("player", "areaPickItem", "spriteItem", "timer")]
 script = ExtResource("9_5gtgg")
 player = NodePath("..")
 areaPickItem = NodePath("../Area2D")
 spriteItem = NodePath("Sprite2D")
+timer = NodePath("Timer")
 itemPositionLeft = Vector2(3, -11)
 itemPositionRight = Vector2(-3, -11)
 itemPositionUp = Vector2(8, -13)
 itemPositionDown = Vector2(-8, -11)
 
 [node name="Sprite2D" type="Sprite2D" parent="itemmanager"]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("10_h17s1")
+scale = Vector2(0.5, 0.5)
+
+[node name="Timer" type="Timer" parent="itemmanager"]
+wait_time = 0.5
+one_shot = true

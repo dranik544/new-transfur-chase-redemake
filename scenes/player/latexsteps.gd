@@ -8,4 +8,4 @@ func _process(delta: float) -> void:
 		if player.health >= 100: emitting = false; return
 		
 		emitting = true
-		amount = 10 - player.health / 10
+		amount_ratio = 1.0 - player.health / 100

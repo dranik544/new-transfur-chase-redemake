@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://bs6m538uk713u"]
+[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://bs6m538uk713u"]
 
 [ext_resource type="Texture2D" uid="uid://pmx3f5li2wy5" path="res://sprites/tiles/box3.png" id="1_0v7ud"]
 [ext_resource type="Texture2D" uid="uid://yl8rox3r8dcx" path="res://sprites/tiles/box1.png" id="1_6mtvp"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dk0m7ig2nqx3c" path="res://sprites/tiles/shadow1.png" id="5_0v7ud"]
 [ext_resource type="Texture2D" uid="uid://yvqs0h4l440l" path="res://sprites/tiles/wall1.png" id="5_ox7hy"]
 [ext_resource type="Texture2D" uid="uid://cdtuifuouvdgb" path="res://sprites/tiles/wallDecorates1.png" id="6_3cign"]
+[ext_resource type="PackedScene" uid="uid://dvqxc8rnr4iqh" path="res://scenes/items/example_item.tscn" id="6_vnwus"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8i3ti"]
 texture = ExtResource("1_0v7ud")
@@ -43,6 +44,9 @@ texture = ExtResource("5_0v7ud")
 0:0/0 = 0
 0:0/0/modulate = Color(1, 1, 1, 0.588235)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_8i3ti"]
+scenes/1/scene = ExtResource("6_vnwus")
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6mtvp"]
 texture = ExtResource("1_6mtvp")
 0:0/0 = 0
@@ -73,3 +77,4 @@ sources/6 = SubResource("TileSetAtlasSource_6mtvp")
 sources/1 = SubResource("TileSetAtlasSource_vnwus")
 sources/0 = SubResource("TileSetAtlasSource_8i3ti")
 sources/2 = SubResource("TileSetAtlasSource_ox7hy")
+sources/3 = SubResource("TileSetScenesCollectionSource_8i3ti")

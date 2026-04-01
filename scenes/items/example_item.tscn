@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvqxc8rnr4iqh"]
+
+[ext_resource type="Texture2D" uid="uid://du0bvyqruplel" path="res://OLDsprites/tiles/navtile1.png" id="1_qfdgw"]
+[ext_resource type="Script" uid="uid://bq48j4c114kdn" path="res://scenes/items/item.gd" id="1_rwv0x"]
+[ext_resource type="Script" uid="uid://bs3ds5ruu27dw" path="res://scenes/items/whatitemdo.gd" id="3_5upop"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfdgw"]
+size = Vector2(16, 16)
+
+[node name="example item" type="StaticBody2D" node_paths=PackedStringArray("sprite", "whatitemdo")]
+collision_layer = 8
+collision_mask = 6
+script = ExtResource("1_rwv0x")
+sprite = NodePath("Sprite2D")
+whatitemdo = NodePath("whatitemdo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qfdgw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qfdgw")
+
+[node name="whatitemdo" type="Node" parent="." node_paths=PackedStringArray("item")]
+script = ExtResource("3_5upop")
+item = NodePath("..")

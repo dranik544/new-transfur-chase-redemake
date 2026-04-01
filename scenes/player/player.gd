@@ -58,6 +58,10 @@ func _physics_process(delta: float) -> void:
 
 func damage(count: int):
 	health -= count
+	
+	if health > 100: health = 100
+	if health < 0: health = 0
+	
 	if health <= 80 and enableLatexInfection: latexTimer.start()
 
 func latextimertimeout():
